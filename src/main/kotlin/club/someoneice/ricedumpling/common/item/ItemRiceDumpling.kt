@@ -10,7 +10,7 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 
-class ItemRiceDumpling(food: FoodProperties): Item(Item.Properties().food(food).stacksTo(32)) {
+open class ItemRiceDumpling(food: FoodProperties): Item(Item.Properties().food(food).stacksTo(32)) {
     override fun finishUsingItem(item: ItemStack, world: Level, player: LivingEntity): ItemStack {
         if (player is Player) {
             val tag = item.orCreateTag.getCompound(TAG_NAME)

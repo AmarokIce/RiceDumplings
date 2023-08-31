@@ -6,9 +6,10 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 
-abstract class AbstractSeasoning(name: String, val willApplyEffect: Boolean,
+abstract class AbstractSeasoning(name: String,
     private val pApply: (item: ItemStack, world: Level, player: Player) -> Unit,
-    private val pApplyEffect: ((player: Player, stuffing: AbstractStuffing) -> Unit)?
+    private val pApplyEffect: ((player: Player, stuffing: AbstractStuffing) -> Unit)?,
+    val willApplyEffect: Boolean = pApplyEffect != null
 ): Item(Properties().stacksTo(16)) {
     init {
         mappingToItem[name] = this
