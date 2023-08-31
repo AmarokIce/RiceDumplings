@@ -1,7 +1,9 @@
 package club.someoneice.ricedumpling.common.tile
 
 import club.someoneice.ricedumpling.api.AbstractLeaves
+import club.someoneice.ricedumpling.api.AbstractSeasoning
 import club.someoneice.ricedumpling.api.AbstractStuffing
+import club.someoneice.ricedumpling.common.item.ItemRiceDumpling
 import club.someoneice.ricedumpling.util.asItemStack
 import club.someoneice.ricedumpling.init.BlockList
 import club.someoneice.ricedumpling.init.ItemList
@@ -67,8 +69,24 @@ class TileRiceDumplingTable(pos: BlockPos, state: BlockState): BlockEntity(TileI
         return canRecipe
     }
 
-    fun assembleRecipe(): Boolean {
-        TODO("Assemble the recipe")
-        return false
+    fun assembleRecipe(): ItemStack {
+        val item: ItemStack = ItemList.RICE_DIMPLING.asItemStack()
+        this.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent {
+            val itemLeaves    = it.getStackInSlot(0)
+            val itemStuffing  = it.getStackInSlot(2)
+            val itemSeasoning = it.getStackInSlot(3)
+
+            val nbt = item.orCreateTag
+            nbt.putString(ItemRiceDumpling.LEAVES   , AbstractLeaves.mappingToName[itemLeaves.item as AbstractLeaves]!!)
+            nbt.putString(ItemRiceDumpling.STUFFING , AbstractStuffing.mappingToName[itemStuffing.item as AbstractStuffing]!!)
+            if (!itemSeasoning.isEmpty) nbt.putString(ItemRiceDumpling.SEASONING, AbstractSeasoning.mappingToName[itemSeasoning.item as AbstractSeasoning]!!)
+
+            it.extractItem(0, 1, false)
+            it.extractItem(1, 1, false)
+            it.extractItem(2, 1, false)
+            it.extractItem(3, 1, false)
+        }
+
+        return item
     }
 }

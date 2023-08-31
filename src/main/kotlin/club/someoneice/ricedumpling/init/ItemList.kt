@@ -28,6 +28,8 @@ object ItemList {
     val SALT                    by REGISTRY.registerObject("salt")                      { Item(Item.Properties())}
     val SEASONING_GLASS         by REGISTRY.registerObject("seasoning_glass")           { Item(Item.Properties())}
 
+    val RICE_DUMPLING_TABLE     by REGISTRY.registerObject("rice_dumpling_table")       { BlockItem(BlockList.TABLE_BLOCK, Item.Properties()) }
+
     /* Food */
     val GLUTINOUS_RICE          by REGISTRY.registerObject("glutinous_rice")            { BlockItem(BlockList.GLUTINOUS_RICE, Item.Properties().food(FoodPropertiesList.GLUTINOUS_RICE)) }
     val SALTED_EGG              by REGISTRY.registerObject("salted_egg")                { Item(Item.Properties().food(FoodPropertiesList.SALTED_EGG)) }

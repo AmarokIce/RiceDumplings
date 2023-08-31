@@ -13,6 +13,6 @@ object TileInit {
     val REGISTRY: DeferredRegister<BlockEntityType<*>> = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, RiceDumpling.MODID)
 
     val TABLE by REGISTRY.registerObject("rice_dumpling_table") {
-        BlockEntityType.Builder.of({ pos: BlockPos, state: BlockState -> TileRiceDumplingTable(pos, state) }).build(null)
+        BlockEntityType.Builder.of({ pos: BlockPos, state: BlockState -> TileRiceDumplingTable(pos, state) }, BlockList.TABLE_BLOCK).build(null)
     }
 }
