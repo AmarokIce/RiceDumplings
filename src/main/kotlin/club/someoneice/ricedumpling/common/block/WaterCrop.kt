@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.storage.loot.LootParams
 import net.minecraft.world.phys.BlockHitResult
 import java.util.*
-import kotlin.random.asKotlinRandom
 
 open class WaterCrop(protected val crop: ItemStack = ItemStack.EMPTY) : CropBlock(Properties.copy(Blocks.GRASS)) {
     override fun mayPlaceOn(block: BlockState, getter: BlockGetter, pos: BlockPos): Boolean = block.`is`(Blocks.WATER)

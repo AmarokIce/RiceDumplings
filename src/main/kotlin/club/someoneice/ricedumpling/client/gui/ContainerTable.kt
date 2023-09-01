@@ -1,4 +1,4 @@
-package club.someoneice.ricedumpling.common.gui
+package club.someoneice.ricedumpling.client.gui
 
 import club.someoneice.ricedumpling.common.tile.TileRiceDumplingTable
 import club.someoneice.ricedumpling.init.MenuInit
@@ -13,28 +13,27 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities
 import net.minecraftforge.items.IItemHandler
 import net.minecraftforge.items.SlotItemHandler
 
-class ContainerTable(id: Int, val inv: Inventory, val tile: BlockEntity?): AbstractContainerMenu(MenuInit.TABLE, id) {
+class ContainerTable(id: Int, inv: Inventory, tile: BlockEntity?): AbstractContainerMenu(MenuInit.TABLE, id) {
     constructor(pContainerId: Int, inv: Inventory, data: FriendlyByteBuf): this(pContainerId, inv, inv.player.level().getBlockEntity(data.readBlockPos()))
 
     init {
-        addPlayerHotbar(inv)
-        addPlayerInventory(inv)
+        if (tile is TileRiceDumplingTable) {
+            addPlayerHotbar(inv)
+            addPlayerInventory(inv)
 
-        class SlotInput(itemHandler: IItemHandler, var index: Int, x: Int, y: Int) :
-            SlotItemHandler(itemHandler, index, x, y) {
-
-            override fun mayPickup(playerIn: Player): Boolean {
-                return !itemHandler.extractItem(index, 1, true).isEmpty
+            class SlotInput(itemHandler: IItemHandler, var index: Int, x: Int, y: Int) :
+                SlotItemHandler(itemHandler, index, x, y) {
+                override fun mayPickup(playerIn: Player): Boolean = !itemHandler.extractItem(index, 1, true).isEmpty
             }
+
+            tile.getCapability(ForgeCapabilities.ITEM_HANDLER)
+                .ifPresent {
+                    addSlot(SlotInput(it, 0, 81, 56))
+                    addSlot(SlotInput(it, 1, 70, 33))
+                    addSlot(SlotInput(it, 2, 93, 33))
+                    addSlot(SlotInput(it, 3, 81, 10))
+                }
         }
-
-        (tile as TileRiceDumplingTable).getCapability(ForgeCapabilities.ITEM_HANDLER)
-            .ifPresent{
-                addSlot(SlotInput(it, 0, 80, 55))
-                addSlot(SlotInput(it, 1, 69, 32))
-                addSlot(SlotInput(it, 2, 92, 32))
-                addSlot(SlotInput(it, 3, 80, 9))
-            }
     }
 
     private val TE_INVENTORY_SLOT_COUNT = 4
@@ -76,7 +75,7 @@ class ContainerTable(id: Int, val inv: Inventory, val tile: BlockEntity?): Abstr
     }
 
     override fun stillValid(player: Player): Boolean {
-        return !player.isDeadOrDying && !player.hurtMarked && this.tile !is TileRiceDumplingTable
+        return !player.isDeadOrDying && !player.hurtMarked
     }
 
     private fun addPlayerInventory(inventory: Inventory) {

@@ -19,6 +19,6 @@ object FoodPropertiesList {
     val BACON_STUFFING: FoodProperties      = FoodProperties.Builder().nutrition(6).saturationMod(1.05F).build()
     val CHICKEN_STUFFING: FoodProperties    = FoodProperties.Builder().nutrition(7).saturationMod(1.2F).build()
     val EGG_STUFFING: FoodProperties        = FoodProperties.Builder().nutrition(6).saturationMod(0.57F).build()
-    val SUGAR_STUFFING: FoodProperties      = FoodProperties.Builder().nutrition(5).saturationMod(0.54F).build()
-    val SLAT_STUFFING: FoodProperties       = FoodProperties.Builder().nutrition(5).saturationMod(0.54F).build()
+    // val SUGAR_STUFFING: FoodProperties      = FoodProperties.Builder().nutrition(5).saturationMod(0.54F).build()
+    // val SLAT_STUFFING: FoodProperties       = FoodProperties.Builder().nutrition(5).saturationMod(0.54F).build()
 }

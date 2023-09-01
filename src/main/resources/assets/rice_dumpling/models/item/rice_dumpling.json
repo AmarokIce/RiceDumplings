@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "rice_dumpling:item/rice_dumpling"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "rice_dumpling:leaf_color": 0.5
+      },
+      "model": "rice_dumpling:item/red_rice_dumpling"
+    },
+    {
+      "predicate": {
+        "rice_dumpling:leaf_color": 1.0
+      },
+      "model": "rice_dumpling:item/purple_rice_dumpling"
+    }
+  ]
+}

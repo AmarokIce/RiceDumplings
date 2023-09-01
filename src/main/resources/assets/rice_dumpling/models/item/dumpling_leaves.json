@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "rice_dumpling:item/dumpling_leaves"
+  }
+}

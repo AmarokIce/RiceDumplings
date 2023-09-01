@@ -2,7 +2,7 @@ package club.someoneice.ricedumpling.util
 
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.entity.player.Player
-import java.util.Random
+import java.util.*
 
 object LeavesApplyList {
     val DUMPLING_LEAVES: (player: Player) -> Unit = { player: Player -> run {}}
