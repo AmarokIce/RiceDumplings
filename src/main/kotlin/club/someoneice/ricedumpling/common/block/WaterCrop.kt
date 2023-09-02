@@ -26,10 +26,10 @@ open class WaterCrop(private val crop: ItemStack = ItemStack.EMPTY) : CropBlock(
     @Deprecated("Deprecated in Java")
     override fun use(block: BlockState, world: Level, pos: BlockPos, player: Player, hand: InteractionHand, hit: BlockHitResult): InteractionResult {
         return if ((block.block as CropBlock).getAge(block) >= 7) {
-            block.setValue(this.ageProperty, 0)
-
             val entity = ItemEntity(world, pos.x.toDouble(), pos.y + 0.5, pos.z.toDouble(), this.asItemStack(2 + random.nextInt(3)))
             world.addFreshEntity(entity)
+
+            world.setBlockAndUpdate(pos, this.getStateForAge(0))
 
             InteractionResult.SUCCESS
         } else InteractionResult.FAIL
