@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_cod"
+    },
+    {
+      "item": "rice_dumpling:rice_ball"
+    }
+  ],
+  "result": {
+    "item": "rice_dumpling:fish_rice_ball"
+  }
+}

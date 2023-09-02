@@ -6,13 +6,13 @@
   "overrides": [
     {
       "predicate": {
-        "rice_dumpling:leaf_color": 0.5
+        "rice_dumpling:leaf_color": 1
       },
       "model": "rice_dumpling:item/red_rice_dumpling"
     },
     {
       "predicate": {
-        "rice_dumpling:leaf_color": 1.0
+        "rice_dumpling:leaf_color": 2
       },
       "model": "rice_dumpling:item/purple_rice_dumpling"
     }

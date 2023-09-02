@@ -1,0 +1,7 @@
+{
+  "parent": "block/crop",
+  "render_type": "cutout",
+  "textures": {
+    "crop": "rice_dumpling:block/glutinous_rice_3"
+  }
+}

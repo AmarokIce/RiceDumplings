@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "rice_dumpling:salt"
+    }
+  ],
+  "result": {
+    "item": "rice_dumpling:salted_egg"
+  }
+}

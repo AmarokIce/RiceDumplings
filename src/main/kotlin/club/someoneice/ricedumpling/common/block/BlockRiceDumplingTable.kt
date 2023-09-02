@@ -24,17 +24,15 @@ class BlockRiceDumplingTable: Block(Properties.copy(Blocks.OAK_WOOD).strength(0.
     override fun newBlockEntity(pos: BlockPos, state: BlockState): BlockEntity = TileRiceDumplingTable(pos, state)
 
     override fun use(state: BlockState, world: Level, pos: BlockPos, player: Player, hand: InteractionHand, hit: BlockHitResult): InteractionResult {
-        if (!world.isClientSide) {
-            val tile = world.getBlockEntity(pos)
-            if (tile is TileRiceDumplingTable) {
-                if (!player.isShiftKeyDown) {
+        val tile = world.getBlockEntity(pos)
+        if (tile is TileRiceDumplingTable) {
+            if (!player.isShiftKeyDown) {
+                if (!world.isClientSide)
                     NetworkHooks.openScreen(player as ServerPlayer, tile, pos)
-                } else if (tile.chickRecipe()) {
-                        player.addItem(tile.assembleRecipe());
-                }
+            } else if (tile.chickRecipe()) {
+                player.addItem(tile.assembleRecipe());
             }
         }
-
 
         return InteractionResult.sidedSuccess(world.isClientSide())
     }

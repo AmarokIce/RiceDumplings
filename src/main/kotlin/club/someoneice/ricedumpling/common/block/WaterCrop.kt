@@ -1,5 +1,6 @@
 package club.someoneice.ricedumpling.common.block
 
+import club.someoneice.ricedumpling.init.ItemList
 import club.someoneice.ricedumpling.util.asItemStack
 import club.someoneice.ricedumpling.util.random
 import com.google.common.collect.Lists
@@ -19,7 +20,7 @@ import net.minecraft.world.level.storage.loot.LootParams
 import net.minecraft.world.phys.BlockHitResult
 import java.util.*
 
-open class WaterCrop(protected val crop: ItemStack = ItemStack.EMPTY) : CropBlock(Properties.copy(Blocks.GRASS)) {
+open class WaterCrop(private val crop: ItemStack = ItemStack.EMPTY) : CropBlock(Properties.copy(Blocks.GRASS)) {
     override fun mayPlaceOn(block: BlockState, getter: BlockGetter, pos: BlockPos): Boolean = block.`is`(Blocks.WATER)
 
     @Deprecated("Deprecated in Java")
@@ -44,7 +45,7 @@ open class WaterCrop(protected val crop: ItemStack = ItemStack.EMPTY) : CropBloc
         if (state.`is`(this) && (state.block as CropBlock).getAge(state) >= 7) {
             list.add(this.asItemStack(2))
             if (this.crop.isEmpty) list.add(this.asItemStack(Random().nextInt(2) + 1))
-        }
+        } else list.add(this.asItemStack())
 
         return list
     }

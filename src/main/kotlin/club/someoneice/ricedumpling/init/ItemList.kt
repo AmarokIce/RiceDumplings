@@ -5,12 +5,14 @@ import club.someoneice.ricedumpling.api.AbstractLeaves
 import club.someoneice.ricedumpling.api.AbstractSeasoning
 import club.someoneice.ricedumpling.api.AbstractStuffing
 import club.someoneice.ricedumpling.common.item.ItemRiceDumpling
+import club.someoneice.ricedumpling.common.item.ItemWaterCope
 import club.someoneice.ricedumpling.util.FoodPropertiesList
 import club.someoneice.ricedumpling.util.LeavesApplyList
 import club.someoneice.ricedumpling.util.SeasoningApplyList
 import club.someoneice.ricedumpling.util.StuffingApplyList
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.PlaceOnWaterBlockItem
 import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.registerObject
@@ -31,7 +33,7 @@ object ItemList {
     val RICE_DUMPLING_TABLE     by REGISTRY.registerObject("rice_dumpling_table")       { BlockItem(BlockList.TABLE_BLOCK, Item.Properties()) }
 
     /* Food */
-    val GLUTINOUS_RICE          by REGISTRY.registerObject("glutinous_rice")            { BlockItem(BlockList.GLUTINOUS_RICE, Item.Properties().food(FoodPropertiesList.GLUTINOUS_RICE)) }
+    val GLUTINOUS_RICE          by REGISTRY.registerObject("glutinous_rice")            { ItemWaterCope(BlockList.GLUTINOUS_RICE, Item.Properties().food(FoodPropertiesList.GLUTINOUS_RICE)) }
     val SALTED_EGG              by REGISTRY.registerObject("salted_egg")                { Item(Item.Properties().food(FoodPropertiesList.SALTED_EGG)) }
     val BACON                   by REGISTRY.registerObject("bacon")                     { Item(Item.Properties().food(FoodPropertiesList.BACON)) }
     val RICE_BALL               by REGISTRY.registerObject("rice_ball")                 { Item(Item.Properties().food(FoodPropertiesList.RICE_BALL)) }

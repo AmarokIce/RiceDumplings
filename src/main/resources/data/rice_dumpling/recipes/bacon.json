@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "S": {
+      "item": "rice_dumpling:salt"
+    }
+  },
+  "pattern": [
+    "SRS",
+    "RBR",
+    "SRS"
+  ],
+  "result": {
+    "item": "rice_dumpling:bacon"
+  },
+  "show_notification": true
+}

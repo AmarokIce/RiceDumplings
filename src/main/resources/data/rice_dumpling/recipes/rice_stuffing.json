@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "rice_dumpling:glutinous_rice"
+    },
+    {
+      "item": "rice_dumpling:glutinous_rice"
+    }
+  ],
+  "result": {
+    "item": "rice_dumpling:rice_stuffing"
+  }
+}

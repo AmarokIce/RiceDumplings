@@ -1,10 +1,7 @@
 package club.someoneice.ricedumpling
 
 import club.someoneice.ricedumpling.client.gui.GUITable
-import club.someoneice.ricedumpling.init.BlockList
-import club.someoneice.ricedumpling.init.ItemList
-import club.someoneice.ricedumpling.init.MenuInit
-import club.someoneice.ricedumpling.init.TileInit
+import club.someoneice.ricedumpling.init.*
 import net.minecraft.client.gui.screens.MenuScreens
 import net.minecraft.client.gui.screens.Screen
 import net.minecraft.client.gui.screens.inventory.MenuAccess
@@ -27,6 +24,7 @@ object RiceDumpling {
         BlockList.REGISTRY.register(MOD_BUS)
         TileInit.REGISTRY.register(MOD_BUS)
         MenuInit.REGISTRY.register(MOD_BUS)
+        TabInit.REGISTRY.register(MOD_BUS)
 
         MOD_BUS.addListener(this::clientSetup)
     }

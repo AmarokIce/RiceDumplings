@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "I": {
+      "tag": "minecraft:fences"
+    }
+  },
+  "pattern": [
+    "###",
+    "I I",
+    "I I"
+  ],
+  "result": {
+    "item": "rice_dumpling:rice_dumpling_table"
+  },
+  "show_notification": true
+}

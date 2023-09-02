@@ -20,14 +20,11 @@ class ItemEvent {
                 ItemList.RICE_DIMPLING,
                 ResourceLocation(RiceDumpling.MODID, "leaf_color")
             ) { itemStack, _, _, _ ->
-                val tag = itemStack.orCreateTag
-                if (tag.contains(ItemRiceDumpling.LEAVES)) {
-                    when (AbstractLeaves.mappingToItem[tag.getString(ItemRiceDumpling.LEAVES)]) {
-                        ItemList.PURPLE_LEAVES -> 1.0F
-                        ItemList.NETHER_LEAVES -> 0.5F
-                        else                   -> 0.0F
-                    }
-                } else 0.0F
+                when (AbstractLeaves.mappingToItem[itemStack.orCreateTag.getString(ItemRiceDumpling.LEAVES)]) {
+                    ItemList.PURPLE_LEAVES -> 2.0F
+                    ItemList.NETHER_LEAVES -> 1.0F
+                    else -> 0.0F
+                }
             }
         }
     }
